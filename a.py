@@ -1,4 +1,5 @@
 import pandas as pd
+from flask_cors import CORS
 from flask import Flask, request, jsonify
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
@@ -13,6 +14,7 @@ similarity = cosine_similarity(vectors)
 
 # Create Flask app
 app = Flask(__name__)
+CORS(app)
 
 # Recommendation function
 def recommend(stock):
